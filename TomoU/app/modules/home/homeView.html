@@ -1,0 +1,432 @@
+﻿<md-content layout="row" layout-align="center">
+    <md-card flex-xs="100" flex-gt-xs="100" flex-gt-sm="100">
+        <md-toolbar md-scroll-shrink layout="column">
+            <div layout="row" layout-align="space-between center">
+
+                <div class="md-toolbar-tools" hide-gt-sm>
+                    <md-menu>
+                        <md-button aria-label="menuAdministracionUsuarios" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+                            <md-icon md-menu-origin class="fa fa-bars fa-2x"></md-icon>
+                        </md-button>
+                        <md-menu-content width="4">
+                            <md-menu-item>
+                                <md-button ng-click="goto('Registro')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-id-card fa-2x"></md-icon>
+                                    Registro
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="goto('Programa')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-calendar fa-2x"></md-icon>
+                                    Programa
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="goto('Sede')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-hospital-o  fa-2x"></md-icon>
+                                    Sede
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="goto('Contacto')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-envelope fa-2x"></md-icon>
+                                    Contacto
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="goto('Casos')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-medkit fa-2x"></md-icon>
+                                    Casos
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="goto('Encuesta')" ng-disabled="loading">
+                                    <md-icon md-menu-align-target class="fa fa-question fa-2x"></md-icon>
+                                    Encuesta
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+
+                <div layout="row" flex-xs="100" flex-gt-xs="100" flex-gt-sm="100" show-gt-lg hide-sm hide-xs hide-gt-xs show-md show-gt-md>
+                    <md-content class="md-padding" flex-xs="100" flex-gt-xs="100" flex-gt-sm="100" layout-align="space-between center">
+                        <md-nav-bar md-no-ink-bar="disableInkBar"
+                                    md-selected-nav-item="currentNavItem"
+                                    nav-bar-aria-label="navigation links" show-gt-lg>
+                            <md-nav-item md-nav-click="goto('Registro')" name="Registro">
+                                Registro
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('Programa')" md-nav-href="" name="Programa">
+                                Programa
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('Sede')" name="Sede">
+                                Sede
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('Contacto')" name="Contacto">
+                                Contacto
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('Casos')" name="Casos" disabled>
+                                Casos
+                            </md-nav-item>
+                            <md-nav-item md-nav-click="goto('Encuesta')" name="Encuesta" disabled>
+                                Encuesta
+                            </md-nav-item>
+                        </md-nav-bar>
+                    </md-content>
+                </div>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-card-title style="background: url('app/assets/FFM.png') ; background-size: cover;" flex-xs="100" flex-gt-xs="100" flex-gt-sm="100">
+            <md-card-title-text>
+                <!--<span>{{status}}</span>-->
+                <!--<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="6" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+                    <md-grid-tile style="background: #f5f5f5;" md-rowspan="3" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                        <md-grid-container>
+
+                        </md-grid-container>
+                        <md-grid-tile-footer>
+                            <h3>#1: (3r x 2c)</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                    <md-grid-tile style="background: #b9f6ca;" md-rowspan="3" md-colspan="4" md-colspan-sm="1" md-colspan-xs="1">
+                        <div class="ext-content" >
+                            <div class="intrinsic-container intrinsic-container-16x9">
+                                <iframe src="app/modules/Test/test.html" allowfullscreen></iframe>
+                            </div>
+                            Sitio: <span>{{currentNavItem}}</span>`.
+                        </div>
+                        <md-grid-tile-footer>
+                            <h3>#1: (3r x 2c)</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                    <md-grid-tile style="background: #f5f5f5;" md-rowspan="3" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1">
+                        <md-grid-tile-footer>
+                            <h3>#1: (3r x 2c)</h3>
+                        </md-grid-tile-footer>
+                    </md-grid-tile>
+                </md-grid-list>-->
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-1 text-center" show-gt-lg hide-sm hide-xs hide-gt-xs show-md show-gt-md>
+                        <a href="http://mastologia.org.mx/"><img src="app/assets/AMM.png" title="Asociaión Mexicana de Mastología" width="50%" /></a>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="background-color:aliceblue;">
+                        <div class="row" ng-show="Pagina === 1">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 1.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <md-card class="col-lg-12 col-md-12 col-sm-12">
+                                            <md-card-title style="background: url('app/assets/FFM.png') ; background-size: cover;">
+                                                <md-card-title-text>
+                                                    <span class="md-headline">Registro</span>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div class="col-lg-12 col-md-12 col-sm-12" style="overflow:auto;">
+                                                    <ng-form layout="column" name="FormularioRegistro" layout-padding>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Nombre</label>
+                                                                    <input type="text" name="Nombre" ng-model="registro.vchNombre" required />
+                                                                    <div ng-messages="FormularioRegistro.Nombre.$error" ng-if="FormularioRegistro.Nombre.$touched">
+                                                                        <div ng-message="required">Necesita establecer un nombre</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Email</label>
+                                                                    <input type="email" name="Email" ng-model="registro.vchEmail" required />
+                                                                    <div ng-messages="FormularioRegistro.Email.$error" ng-if="FormularioRegistro.Email.$touched">
+                                                                        <div ng-message="email">No es un correo electrónico válido</div>
+                                                                        <div ng-message="required">Se requiere asignar un correo electrónico al usuario</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Telefono</label>
+                                                                    <input type="number" name="Telefono" ng-model="registro.vchTelefono" required />
+                                                                    <div ng-messages="FormularioRegistro.Telefono.$error" ng-if="FormularioRegistro.Telefono.$touched">
+                                                                        <div ng-message="required">Necesita establecer un Telefono de contacto</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Hospital de residencia</label>
+                                                                    <input type="text" name="Hospital" ng-model="registro.vchHospital" required />
+                                                                    <div ng-messages="FormularioRegistro.Hospital.$error" ng-if="FormularioRegistro.Hospital.$touched">
+                                                                        <div ng-message="required">Necesita establecer un Hospital de Residencia</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Especialidad</label>
+                                                                    <input type="text" name="Especialidad" ng-model="registro.vchEspecialidad" required />
+                                                                    <div ng-messages="FormularioRegistro.Especialidad.$error" ng-if="FormularioRegistro.Especialidad.$touched">
+                                                                        <div ng-message="required">Necesita establecer una especialidad</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Equipo de Mastografía digital con el que cuenta su Hospital</label>
+                                                                    <input type="text" name="Equipo" ng-model="registro.vchEquipoMasto" required />
+                                                                    <div ng-messages="FormularioRegistro.Equipo.$error" ng-if="FormularioRegistro.Equipo.$touched">
+                                                                        <div ng-message="required">Necesita establecer un Equipo de mastrografía</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container style="width:100%">
+                                                                    <label>Estado</label>
+                                                                    <md-select ng-model="registro.intEstadoID" name="Estado" required>
+                                                                        <md-option ng-repeat="region in regiones_origen" ng-value="region.intEstadoID">
+                                                                            {{region.vchEstado}}
+                                                                        </md-option>
+                                                                    </md-select>
+                                                                    <div ng-messages="FormularioRegistro.Estado.$error" ng-if="FormularioRegistro.Estado.$touched">
+                                                                        <div ng-message="required">Necesita seleccionar el Estado</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container>
+                                                                    <md-checkbox ng-model="registro.bitTomosintesis" aria-label="ModificarPasswordLabel">
+                                                                        ¿Cuenta con Tomosíntesis el equipo de mastografía digital de su hospital?
+                                                                    </md-checkbox>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <md-input-container>
+                                                                    <md-checkbox ng-model="registro.bitBeca" aria-label="ModificarPasswordLabel">
+                                                                        ¿Cuenta con beca?
+                                                                    </md-checkbox>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                <div ng-if="registro.bitBeca" layout="column">
+                                                                    <md-input-container style="width:100%">
+                                                                        <label>No. de Folio de Beca</label>
+                                                                        <input type="text" name="FolioBeca" ng-model="registro.vchFolioBeca" required />
+                                                                        <div ng-messages="FormularioRegistro.FolioBeca.$error" ng-if="FormularioRegistro.FolioBeca.$touched">
+                                                                            <div ng-message="required">Necesita establecer un folio de una beca</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                </div>
+                                                                <div ng-if="!registro.bitBeca" layout="column">
+                                                                    <md-input-container style="width:100%">
+                                                                        <label>Si usted realizó el pago, favor de colocar su No. de Folio </label>
+                                                                        <input type="text" name="FolioPago" ng-model="registro.vchPagoFolio" required />
+                                                                        <div ng-messages="FormularioRegistro.FolioPago.$error" ng-if="FormularioRegistro.FolioPago.$touched">
+                                                                            <div ng-message="required">Necesita establecer un folio de pago</div>
+                                                                        </div>
+                                                                    </md-input-container>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-form>
+                                                </div>
+                                            </md-card-content>
+                                            <md-card-actions layout="row" layout-align="end center">
+                                                <md-button class="md-raised md-primary" ng-disabled="loading || FormularioRegistro.$invalid" ng-click="AgregarRegistro(registro, $event)">Agregar</md-button>
+                                            </md-card-actions>
+                                        </md-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="Pagina === 2">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 2.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    Programa
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="Pagina === 3">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 3.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    Sede
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="Pagina === 4">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 4.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <md-card class="col-lg-12 col-md-12 col-sm-12">
+                                            <md-card-title style="background: url('app/assets/FFM.png') ; background-size: cover;">
+                                                <md-card-title-text>
+                                                    <span class="md-headline">Contacto</span>
+                                                </md-card-title-text>
+                                            </md-card-title>
+                                            <md-card-content>
+                                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <ng-form layout="column" name="FormularioContacto" layout-padding>
+                                                                <md-input-container>
+                                                                    <label>Nombre</label>
+                                                                    <input type="text" name="Nombre" ng-model="contacto.Nombre" required />
+                                                                    <div ng-messages="FormularioContacto.Nombre.$error" ng-if="FormularioContacto.Nombre.$touched">
+                                                                        <div ng-message="required">Necesita establecer un nombre de usuario</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                                <md-input-container>
+                                                                    <label>Email</label>
+                                                                    <input type="email" name="Email" ng-model="contacto.Correo" required />
+                                                                    <div ng-messages="FormularioContacto.Email.$error" ng-if="FormularioContacto.Email.$touched">
+                                                                        <div ng-message="email">No es un correo electrónico válido</div>
+                                                                        <div ng-message="required">Se requiere asignar un correo electrónico al usuario</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                                <md-input-container>
+                                                                    <label>Mensaje</label>
+                                                                    <textarea type="text" name="Mensaje" ng-model="contacto.Mensaje" required />
+                                                                    <div ng-messages="FormularioContacto.Mensaje.$error" ng-if="FormularioContacto.Mensaje.$touched">
+                                                                        <div ng-message="required">Necesita establecer un Mensaje</div>
+                                                                    </div>
+                                                                </md-input-container>
+                                                            </ng-form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <md-card-actions layout="row" layout-align="end center">
+                                                            <md-button class="md-raised md-primary" ng-disabled="loading || FormularioContacto.$invalid" ng-click="EnviarMensaje(contacto, $event)">
+                                                                Enviar
+                                                            </md-button>
+                                                        </md-card-actions>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-2 col-sm-1">
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-8 col-sm-10 text-center">
+                                                            <h2>
+                                                                Tomo-U
+                                                                <small>
+                                                                    <br /><i class="fa fa-envelope-o" aria-hidden="true" style="margin-top:10px; color: #e91e63;"></i>Tomo-u@fujifilm.com.mx
+                                                                </small>
+                                                            </h2>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-2 col-sm-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </md-card-content>
+                                        </md-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="Pagina === 5">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 5.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    Casos
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="Pagina === 6">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div layout="row" flex>
+                                        <div class="parent" layout="column" flex>
+                                            <md-card class="card">
+                                                <img src="app/assets/BANNER 6.png" />
+                                            </md-card>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="intrinsic-container intrinsic-container-16x9">
+                                            <iframe src="https://www.surveymonkey.com/r/VM39QZF" allowfullscreen ng-show="Pagina === 6"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-1 text-center" show-gt-lg hide-sm hide-xs hide-gt-xs show-md show-gt-md>
+                        <a href="https://www.barco.com/es/"><img src="app/assets/barco.png" title="Sistemas de Pantallas Medicas Barco" width="70%" /></a>
+                    </div>
+                </div>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+</md-content>
+
+
+<style type="text/css">
+    .intrinsic-container {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* 16x9 Aspect Ratio */
+    .intrinsic-container-16x9 {
+        padding-bottom: 56.25%;
+    }
+
+    /* 4x3 Aspect Ratio */
+    .intrinsic-container-4x3 {
+        padding-bottom: 75%;
+    }
+
+    .intrinsic-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

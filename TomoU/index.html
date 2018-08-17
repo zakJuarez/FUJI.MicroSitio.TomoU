@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Tomo-U</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="app/assets/Favicon.ico" type="image/ico" />
+    <link href="app/styles/angular-material.min.css" rel="stylesheet" />
+    <link href="app/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="app/styles/Roboto.css" rel="stylesheet" />
+    <link href="app/styles/Khula.css" rel="stylesheet" />
+    <script src="app/scripts/fontawesome4.js"></script>
+    <link href="app/styles/flexboxes.css" rel="stylesheet" />
+</head>
+<body ng-app="tomou" ng-cloak>
+    <header>
+        <md-toolbar layout="column">
+            <div layout="row" layout-align="space-between center">
+                <img src="app/assets/logo.png" style="height:50px; width:auto; margin: 10px 10px 0 10px;">
+                <!--<div layout-padding><span style="font-family: 'Khula', sans-serif;">Tomo-U</span></div>-->
+                <img src="app/assets/Logo TOMO-U.png" style="height:50px; width:auto; margin: 10px 10px 0 10px;">
+            </div>
+        </md-toolbar>
+    </header>
+    <div id="mainContainer" ng-view></div>
+    <footer>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 20px; padding-bottom:20px; vertical-align:middle;" hide-gt-sm>
+            <a href="http://mastologia.org.mx/"><img src="app/assets/AMM.png" title="Asociaión Mexicana de Mastología" width="50%"/></a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center" style="padding-top: 20px; padding-bottom:20px; vertical-align:middle;" hide-gt-sm>
+            <a href="https://www.barco.com/es/"><img src="app/assets/barco.png" title="Sistemas de Pantallas Medicas Barco" width="70%" /></a>
+        </div>
+    </footer>
+    <script src="app/scripts/jquery-3.2.1.min.js"></script>
+    <script src="app/scripts/bootstrap.min.js"></script>
+    <script src="app/scripts/moment.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="app/scripts/angular.min.js"></script>
+    <script src="app/scripts/angular-locale_es-mx.min.js"></script>
+    <script src="app/scripts/angular-animate.min.js"></script>
+    <script src="app/scripts/angular-aria.min.js"></script>
+    <script src="app/scripts/angular-messages.min.js"></script>
+    <script src="app/scripts/angular-route.min.js"></script>
+    <script src="app/scripts/angular-cookies.min.js"></script>
+    <script src="app/scripts/angular-sanitize.js"></script>
+    <script src="app/scripts/angular-idle.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="app/scripts/angular-material.min.js"></script>
+    <script src="app/scripts/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- Sitio -->
+    <script src="app/TomoU.js"></script>
+    <script src="app/modules/home/homeController.js"></script>
+    <script src="app/modules/home/homeServices.js"></script>
+</body>
+</html>

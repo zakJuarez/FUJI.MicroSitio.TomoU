@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TomoUDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_CAT_Estado">
+          <Key>
+            <PropertyRef Name="intEstadoID" />
+          </Key>
+          <Property Name="intEstadoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vchEstado" Type="varchar" MaxLength="200" />
+          <Property Name="bitActivo" Type="bit" />
+          <Property Name="datFecha" Type="datetime" />
+          <Property Name="vchUserAdmin" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_CAT_Registro">
+          <Key>
+            <PropertyRef Name="intRegistroID" />
+          </Key>
+          <Property Name="intRegistroID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vchNombre" Type="varchar" MaxLength="200" />
+          <Property Name="vchEmail" Type="varchar" MaxLength="200" />
+          <Property Name="vchTelefono" Type="varchar" MaxLength="100" />
+          <Property Name="vchHospital" Type="varchar" MaxLength="200" />
+          <Property Name="vchEspecialidad" Type="varchar" MaxLength="200" />
+          <Property Name="vchEquipoMasto" Type="varchar" MaxLength="300" />
+          <Property Name="bitTomosintesis" Type="bit" />
+          <Property Name="bitBeca" Type="bit" />
+          <Property Name="vchFolioBeca" Type="varchar" MaxLength="100" />
+          <Property Name="vchPagoFolio" Type="varchar" MaxLength="100" />
+          <Property Name="datFecha" Type="datetime" />
+          <Property Name="bitActivo" Type="bit" />
+          <Property Name="vchUserAdmin" Type="varchar" MaxLength="100" />
+          <Property Name="bitConfirmado" Type="bit" />
+          <Property Name="intEstadoID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_SYS_Configuraciones">
+          <Key>
+            <PropertyRef Name="vchConfiguracion" />
+          </Key>
+          <Property Name="vchConfiguracion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="vchValor" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_CAT_Registro_CAT_Estado">
+          <End Role="tbl_CAT_Estado" Type="Self.tbl_CAT_Estado" Multiplicity="0..1" />
+          <End Role="tbl_CAT_Registro" Type="Self.tbl_CAT_Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CAT_Estado">
+              <PropertyRef Name="intEstadoID" />
+            </Principal>
+            <Dependent Role="tbl_CAT_Registro">
+              <PropertyRef Name="intEstadoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="stp_encripta_cadena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cadena" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TomoUDBModelStoreContainer">
+          <EntitySet Name="tbl_CAT_Estado" EntityType="Self.tbl_CAT_Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CAT_Registro" EntityType="Self.tbl_CAT_Registro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SYS_Configuraciones" EntityType="Self.tbl_SYS_Configuraciones" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CAT_Registro_CAT_Estado" Association="Self.FK_CAT_Registro_CAT_Estado">
+            <End Role="tbl_CAT_Estado" EntitySet="tbl_CAT_Estado" />
+            <End Role="tbl_CAT_Registro" EntitySet="tbl_CAT_Registro" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TomoUDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_CAT_Registro">
+          <Key>
+            <PropertyRef Name="intRegistroID" />
+          </Key>
+          <Property Name="intRegistroID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vchNombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="vchEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="vchTelefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vchHospital" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="vchEspecialidad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="vchEquipoMasto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="bitTomosintesis" Type="Boolean" />
+          <Property Name="bitBeca" Type="Boolean" />
+          <Property Name="vchFolioBeca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="vchPagoFolio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="datFecha" Type="DateTime" Precision="3" />
+          <Property Name="bitActivo" Type="Boolean" />
+          <Property Name="vchUserAdmin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="bitConfirmado" Type="Boolean" />
+          <Property Name="intEstadoID" Type="Int32" />
+          <NavigationProperty Name="tbl_CAT_Estado" Relationship="TomoUDBModel.FK_CAT_Registro_CAT_Estado" FromRole="tbl_CAT_Registro" ToRole="tbl_CAT_Estado" />
+        </EntityType>
+        <EntityContainer Name="TomoUDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_CAT_Registro" EntityType="Self.tbl_CAT_Registro" />
+          <FunctionImport Name="stp_encripta_cadena" ReturnType="Collection(String)">
+          <Parameter Name="Cadena" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_SYS_Configuraciones" EntityType="TomoUDBModel.tbl_SYS_Configuraciones" />
+          <EntitySet Name="tbl_CAT_Estado" EntityType="TomoUDBModel.tbl_CAT_Estado" />
+          <AssociationSet Name="FK_CAT_Registro_CAT_Estado" Association="TomoUDBModel.FK_CAT_Registro_CAT_Estado">
+            <End Role="tbl_CAT_Estado" EntitySet="tbl_CAT_Estado" />
+            <End Role="tbl_CAT_Registro" EntitySet="tbl_CAT_Registro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_SYS_Configuraciones">
+          <Key>
+            <PropertyRef Name="vchConfiguracion" />
+          </Key>
+          <Property Name="vchConfiguracion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="vchValor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_CAT_Estado">
+          <Key>
+            <PropertyRef Name="intEstadoID" />
+          </Key>
+          <Property Name="intEstadoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vchEstado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bitActivo" Type="Boolean" />
+          <Property Name="datFecha" Type="DateTime" Precision="3" />
+          <Property Name="vchUserAdmin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_CAT_Registro" Relationship="TomoUDBModel.FK_CAT_Registro_CAT_Estado" FromRole="tbl_CAT_Estado" ToRole="tbl_CAT_Registro" />
+        </EntityType>
+        <Association Name="FK_CAT_Registro_CAT_Estado">
+          <End Type="TomoUDBModel.tbl_CAT_Estado" Role="tbl_CAT_Estado" Multiplicity="0..1" />
+          <End Type="TomoUDBModel.tbl_CAT_Registro" Role="tbl_CAT_Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CAT_Estado">
+              <PropertyRef Name="intEstadoID" />
+            </Principal>
+            <Dependent Role="tbl_CAT_Registro">
+              <PropertyRef Name="intEstadoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TomoUDBModelStoreContainer" CdmEntityContainer="TomoUDBEntities">
+          <EntitySetMapping Name="tbl_CAT_Registro">
+            <EntityTypeMapping TypeName="TomoUDBModel.tbl_CAT_Registro">
+              <MappingFragment StoreEntitySet="tbl_CAT_Registro">
+                <ScalarProperty Name="intEstadoID" ColumnName="intEstadoID" />
+                <ScalarProperty Name="intRegistroID" ColumnName="intRegistroID" />
+                <ScalarProperty Name="vchNombre" ColumnName="vchNombre" />
+                <ScalarProperty Name="vchEmail" ColumnName="vchEmail" />
+                <ScalarProperty Name="vchTelefono" ColumnName="vchTelefono" />
+                <ScalarProperty Name="vchHospital" ColumnName="vchHospital" />
+                <ScalarProperty Name="vchEspecialidad" ColumnName="vchEspecialidad" />
+                <ScalarProperty Name="vchEquipoMasto" ColumnName="vchEquipoMasto" />
+                <ScalarProperty Name="bitTomosintesis" ColumnName="bitTomosintesis" />
+                <ScalarProperty Name="bitBeca" ColumnName="bitBeca" />
+                <ScalarProperty Name="vchFolioBeca" ColumnName="vchFolioBeca" />
+                <ScalarProperty Name="vchPagoFolio" ColumnName="vchPagoFolio" />
+                <ScalarProperty Name="datFecha" ColumnName="datFecha" />
+                <ScalarProperty Name="bitActivo" ColumnName="bitActivo" />
+                <ScalarProperty Name="vchUserAdmin" ColumnName="vchUserAdmin" />
+                <ScalarProperty Name="bitConfirmado" ColumnName="bitConfirmado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="stp_encripta_cadena" FunctionName="TomoUDBModel.Store.stp_encripta_cadena" />
+          <EntitySetMapping Name="tbl_SYS_Configuraciones">
+            <EntityTypeMapping TypeName="TomoUDBModel.tbl_SYS_Configuraciones">
+              <MappingFragment StoreEntitySet="tbl_SYS_Configuraciones">
+                <ScalarProperty Name="vchValor" ColumnName="vchValor" />
+                <ScalarProperty Name="vchConfiguracion" ColumnName="vchConfiguracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CAT_Estado">
+            <EntityTypeMapping TypeName="TomoUDBModel.tbl_CAT_Estado">
+              <MappingFragment StoreEntitySet="tbl_CAT_Estado">
+                <ScalarProperty Name="vchUserAdmin" ColumnName="vchUserAdmin" />
+                <ScalarProperty Name="datFecha" ColumnName="datFecha" />
+                <ScalarProperty Name="bitActivo" ColumnName="bitActivo" />
+                <ScalarProperty Name="vchEstado" ColumnName="vchEstado" />
+                <ScalarProperty Name="intEstadoID" ColumnName="intEstadoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
